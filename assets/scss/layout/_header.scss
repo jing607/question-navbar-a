@@ -1,0 +1,205 @@
+.navbar {
+    background-color: rgba(238, 238, 238, 0.70);
+    backdrop-filter: blur(25px);
+    transition: top 0.3s ease-in-out;
+    @include media-breakpoint-down(lg) {
+        background-color: white;
+        backdrop-filter: none;
+      }
+
+    &-collapse {
+        flex-grow: 0;
+    }
+
+    .nav-link {
+        font-weight: 700;
+        color: $gray-900;
+        line-height: 120%;
+        @include media-breakpoint-down(lg) {
+            font-weight: 900;
+          }
+    }
+   
+    .nav-item {
+        height: auto;
+        @include media-breakpoint-down(lg) {
+            height: 40px;
+        }
+    }
+
+    .nav-item-btn {
+        transition: background-color 0.1s ease, color 0.1s ease;
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+    }
+
+    .dropdown-btn {
+        height: 40px;
+        position: relative;
+        &:hover {
+            background-color: $primary;
+            color: white;
+        }
+    }
+    
+    .nav-dropdown-menu {
+        padding: 0;
+        border-radius: 0;
+        margin: 0;
+
+        .dropdown-item {
+            color: $gray-900;
+            border-color: black;
+            padding: .625rem 1rem;
+            transition: background-color 0.2s ease, color 0.2s ease;
+
+            &:hover, &:focus {
+                background-color: $primary;
+                color: white;
+            }
+
+            &:active {
+                background-color: #ced4da;
+                color: $primary;
+            }
+        }
+    }
+    
+    &-toggler-custom {
+        border: none;
+        background-color: $gray-900;
+        height: 88px;
+        position: fixed;
+        bottom: 12px;
+        right: 0;
+        border-radius: 0;
+        z-index: 10000;
+        
+        &:focus {
+            outline: none;
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        &.toggled {
+            color: $primary;
+        }
+    }
+    
+    .offcanvas-header {
+        margin-bottom: 76px;   
+    }
+
+    .dropdown-toggle::after {
+        content: "";
+        display: none;
+    }
+}
+
+.search {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 80vw;
+    &-background {
+        border-radius: 0 0 8px 0;
+        background-color: rgba(238, 238, 238, 0.70);
+        backdrop-filter: blur(25px);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.50); 
+        z-index: -1;
+    }
+    
+    &-bar {
+        position: relative;
+       
+    }
+
+    &-form {
+        max-width: 846px;
+    }
+    .input-group {
+        width: 45%;
+        @include media-breakpoint-up(xxl) {
+            width: 75%;
+        }
+        @media screen and (min-width: 1920px) {
+            width: 100%;
+        }
+        max-width: 590px;
+        height: 40px;
+        background-color: white;
+    }
+    .search-input  {
+        border: none;
+        &::placeholder {
+            color: $gray-400;
+            line-height: 150%; 
+        }
+        &:focus {
+            outline: none;
+            box-shadow: none;
+            border-color: transparent;
+        }
+    }
+
+    .custom-dropdown-menu {
+        border: none;
+        border-radius: .5rem;
+        padding: 0;
+        box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25), 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+
+        .dropdown-item {
+            color: $gray-900;
+            padding: .625rem 1rem;
+            transition: background-color 0.2s ease, color 0.2s ease;
+
+            &:hover, &:focus {
+                background-color: $primary;
+                color: white;
+            }
+
+            &:active {
+                background-color: #ced4da;
+                color: #212529;
+            }
+        }
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 0;
+        right: -96px;
+        width: 88px;
+        height: 88px;
+        line-height: 120%;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), #000;
+
+        }
+    }
+}
+
+/* 初始狀態: 向下箭頭 */
+.dropdown-arrow {
+    transform: scaleY(1);
+}
+
+/* 點擊後: 翻轉箭頭 */
+.flip-arrow {
+    transform: scaleY(-1);
+}
